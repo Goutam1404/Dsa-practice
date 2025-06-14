@@ -19,7 +19,7 @@ public class Array01 {
 			System.out.println();
 		}
 		
-		//reverse the array
+		//** reverse the array
 		//brute force approach will be creating an array in which will be taken 
 		//from opposite indexes of original array
 		//* optimised one
@@ -36,7 +36,7 @@ public class Array01 {
 			printArray(arr);
 		}
 		
-		// largest and second largest value in the array	
+		//**  largest and second largest value in the array	
 		//brute force
 		public static int largestvalBysort(int arr[]) {
 			Arrays.sort(arr);
@@ -72,7 +72,7 @@ public class Array01 {
 			return sl;
 		}
 		
-		//smallest value in the array
+		//** smallest value in the array
 		//its brute will be same like the largest only change will be we will access the 0th and 1th index
 		//* optimised one
 		public static int smallval1(int arr[]) {
@@ -99,7 +99,7 @@ public class Array01 {
 			return ss;
 		}
 		
-		//subarrays
+		//** subarrays
 		//printing the subarray and the sum of each subarray
 		public static void printSubarray(int arr[]) {
 			int sum;
@@ -154,7 +154,7 @@ public class Array01 {
 			System.out.println("By kadanes algo: "+max);
 		}
 		
-		//two sum
+		//** two sum
 		//*not optimised one (using Hashset)
 		 public int[] twoSum(int[] arr, int target) {
 		        int arr1[]=new int[2];
