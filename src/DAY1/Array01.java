@@ -152,7 +152,20 @@ public class Array01 {
 			System.out.println("By kadanes algo: "+max);
 		}
 		
-		
+		//two sum
+		//* optimised one (using Hashset)
+		 public int[] twoSum(int[] arr, int target) {
+		        int arr1[]=new int[2];
+		        for(int i=0;i<arr.length-1;i++){
+		            for(int j=i+1;j<arr.length;j++){
+		                if(arr[i]+arr[j]==target){
+		                arr1[0]=i;
+		                arr1[1]=j;
+		                }
+		            }
+		        }
+		        return arr;
+		    }
 		
 		public static void main(String[] args) {
 		// TODO Auto-generated method stub
