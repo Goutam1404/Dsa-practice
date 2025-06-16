@@ -39,7 +39,30 @@ public class String01 {
 
 	        return true;
 	    }
-	public static void main(String[] args) {
+	
+	  //Anangram is the analogy for strings i.e it checks all the alphabates in both strings are equal or nor  
+	  public boolean isAnagram(String s, String t) {
+	        s=s.toLowerCase();
+	        t=t.toLowerCase();
+	
+	        s=s.replace(" ","");
+	        t=t.replace(" ","");
+	        int arr[]=new int[26];
+	        for(int i=0;i<s.length();i++){
+	            arr[s.charAt(i)-'a']++;
+	        }
+	        for(int i=0;i<t.length();i++){
+	            arr[t.charAt(i)-'a']--;
+	        }
+	    for(int count: arr){
+	        if(!(count==0)){
+	            return false;
+	        }
+	    }
+	    return true;
+	    }
+	  
+	  public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		String str1="raceCar";
 		String str2="A man, a plan, a canal: Panama";
