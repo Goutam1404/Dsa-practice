@@ -61,6 +61,7 @@ public class String01 {
 	    return true;
 	    }
 	  
+	 
 	  //** Anagram using hashmap
 	  public static boolean isAnagramHash(String s,String t) {
 		  HashMap<Character,Integer> map=new HashMap<>();
@@ -81,17 +82,30 @@ public class String01 {
 		  
 		  return map.isEmpty();
 	  }
+
+	  
+	  //** count frequency 
+	  //It is optimized code by hashmap but by brute force tc wil be o(n*n)
+	  public static int countFrequency(String str, char key) {
+		  HashMap<Character, Integer> hm=new HashMap<>();
+		  for(char ch:str.toCharArray()) {
+			  hm.put(ch, hm.getOrDefault(ch,0)+1);
+		  }
+		  return hm.get(key);
+	  }
+	  
 	  
 	  public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		String str1="raceCar";
 		String str2="A man, a plan, a canal: Panama";
-		System.out.println(str1+" is a palindrome :"+isPalindrome(str1));
-		System.out.println(str2+" is a palind	rome :"+isPalindromeSpecialCharacters(str2));
-		String s1="car";
-		String s2="rac";
-		System.out.println(isAnagram(s1,s2));
-		System.out.println(isAnagramHash(s1,s2));
+//		System.out.println(str1+" is a palindrome :"+isPalindrome(str1));
+//		System.out.println(str2+" is a palindrome :"+isPalindromeSpecialCharacters(str2));
+		String s1="tulip";
+		String s2="lipid";
+		System.out.println(countFrequency(s2,'i'));
+//		System.out.println(isAnagram(s1,s2));
+//		System.out.println(isAnagramHash(s1,s2));
 	}
 
 }
