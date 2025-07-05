@@ -63,6 +63,32 @@ public class SortingAlgos {
 		printArr(arr);
 	}
 	
+	//Counting sort best case ~n How fast the Counting Sort algorithm runs depends on both the
+	//range of possible values k and the number of values n
+	//The frequency of elements is stored in a new array ,it is most suitable for an array consisting 
+	//the least range of values
+	public static void countingSort(int arr[]) {
+		int n=arr.length;
+		int largest=Integer.MIN_VALUE;
+		for(int i=0;i<n;i++) {
+			largest=Math.max(largest, arr[i]);
+		}
+		int freqn[]=new int[largest+1];
+		for(int i=0;i<n;i++) {
+			int j=arr[i];
+			freqn[j]++;
+		}
+		int i=0;
+		for(int j=0;j<freqn.length;j++) {
+			while(freqn[j]>0) {
+				arr[i]=j;
+				i++;
+				freqn[j]--;	
+			}
+		}
+		printArr(arr);
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int arr[] = new int[6];
@@ -70,7 +96,9 @@ public class SortingAlgos {
 //		bubbleSort(arr);
 //		printArr(arr);
 //		selectionSort(arr);
-		insertionSort(arr);
+//		insertionSort(arr);
+		countingSort(arr);
+		
 	}
 
 }
