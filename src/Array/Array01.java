@@ -40,7 +40,6 @@ public class Array01 {
 		//Ascending order
 		public static boolean isSortedinIncr(int arr[]) {
 			//1,2,3,4,4,5
-			int max=arr[0];
 			for(int i=1;i<arr.length;i++) {
 				if(!(arr[i]>=arr[i-1])) {
 					return false;
@@ -51,7 +50,6 @@ public class Array01 {
 		//Descending order
 		public static boolean isSortedinDecr(int arr[]) {
 			//5,4,4,3,1
-			int max=arr[0];
 			for(int i=1;i<arr.length;i++) {
 				if(!(arr[i]<=arr[i-1])) {
 					return false;
@@ -72,7 +70,7 @@ public class Array01 {
 		}
 		//* optimised one
 	 	public static int largestval1(int arr[]) {
-			int max=Integer.MIN_VALUE;
+			int max=arr[0];
 			for(int i=1;i<arr.length-1;i++) {
 				if(arr[i]>max) {
 					max=arr[i];
@@ -80,8 +78,8 @@ public class Array01 {
 			}
 			return max;
 		}
-		public static int largestval2(int arr[]) {
-
+		//second largest
+	 	public static int largestval2(int arr[]) {
 			int sl=-1;
 			int l=arr[0];	
 			for(int i=1;i<arr.length-1;i++) {
@@ -108,19 +106,20 @@ public class Array01 {
 			}
 			return min;
 		}
+		// second smallest value
 		public static int smallval2(int arr[]) {
-			int ss=100;
-			int s=arr[0];
+			int secondSmallest=100; //some bigger value is to be assigned
+			int smallest=arr[0];
 			for(int i=1;i<arr.length-1;i++) {
-				if(arr[i]<s) {
-					ss=s;
-					s=arr[i];
+				if(arr[i]<smallest) { 		 //4,1,3,2,5
+					secondSmallest=smallest; //ss=4,3,2
+					smallest=arr[i]; 		//s=1,1,1
 				}
-				else if(arr[i]>s && arr[i]<ss) {
-					ss=arr[i];
+				else if(arr[i]>smallest && arr[i]<secondSmallest) {
+					secondSmallest=arr[i];
 				}
 			}
-			return ss;
+			return secondSmallest;
 		}
 		
 		//** subarrays
@@ -165,17 +164,21 @@ public class Array01 {
 		public static void max_sumkadanes(int arr[]) {
 			int max=Integer.MIN_VALUE;
 			int sum=0;
+			int j=0,k=0; //1,3,-2,-4,5,6
 			for(int i=0;i<arr.length;i++) {
-				
-					sum+=arr[i];                                          
+					sum+=arr[i];//1,4,2,-2,5,11                                          
 					if(sum<0) {
+						j=i+1; //j=0,0,0,4,4
 						sum=0;
 					}
 					if(sum>max) {
-						max=sum;
+						k=i; //k=0,1,1,1,4,5
+						max=sum; //max=1,4,4,4,5,11
 					}	
 				}
 			System.out.println("By kadanes algo: "+max);
+			//printing the subarray with max sum
+			for(int i=j;i<=k;i++) System.out.print(arr[i]+" ");
 		}
 		
 		//** two sum
@@ -205,6 +208,8 @@ public class Array01 {
 //		System.out.println("2nd largest number: "+largestval2(arr));
 //		System.out.println("1st smallest number: "+smallval1(arr));
 //		System.out.println("2nd smallest number: "+smallval2(arr));
+		int arr1[]= {1,3,-2,-4,5,6};
+		max_sumkadanes(arr1);
 	}
 
 }
