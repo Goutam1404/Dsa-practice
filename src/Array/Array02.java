@@ -1,7 +1,15 @@
 package Array;
 import java.util.*;
 //problems solved using hashset
-public class Array02 {
+
+public class Array02 {	
+	static void countDuplicatesUsingSet(int arr[]) {
+		HashSet<Integer> set=new HashSet<>();
+		for(int i:arr) {
+			set.add(i);
+		}
+		System.out.println(set.size());
+	}
 	
 	static void removeDuplicatesUsingArr(int arr[]) {
 		int j=0,count=1;
@@ -16,13 +24,6 @@ public class Array02 {
 		System.out.println(" Number of unique elements:"+count);
 	}
 	
-	static void countDuplicatesUsingSet(int arr[]) {
-		HashSet<Integer> set=new HashSet<>();
-		for(int i:arr) {
-			set.add(i);
-		}
-		System.out.println(set.size());
-	}
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

@@ -164,21 +164,22 @@ public class Array01 {
 		public static void max_sumkadanes(int arr[]) {
 			int max=Integer.MIN_VALUE;
 			int sum=0;
-			int j=0,k=0; //1,3,-2,-4,5,6
+			int startIndex=0, endIndex = 0;
+			 //1,3,-2,-4,5,6
 			for(int i=0;i<arr.length;i++) {
 					sum+=arr[i];//1,4,2,-2,5,11                                          
 					if(sum<0) {
-						j=i+1; //j=0,0,0,4,4
+						startIndex=i+1; //j=0,0,0,4,4
 						sum=0;
 					}
 					if(sum>max) {
-						k=i; //k=0,1,1,1,4,5
+						endIndex=i; //k=0,1,1,1,4,5
 						max=sum; //max=1,4,4,4,5,11
 					}	
 				}
 			System.out.println("By kadanes algo: "+max);
 			//printing the subarray with max sum
-			for(int i=j;i<=k;i++) System.out.print(arr[i]+" ");
+			for(int i=startIndex;i<=endIndex;i++) System.out.print(arr[i]+" ");
 		}
 		
 		//** two sum
@@ -199,8 +200,8 @@ public class Array01 {
 		public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int arr[]= {1,2,3,4,5};
-		System.out.println("Elements of the array");
-		printArray(arr);
+//		System.out.println("Elements of the array");
+//		printArray(arr);
 //		System.out.println(isSortedinIncr(arr));
 //		reverseArray(arr);
 //		printSubarray(arr);

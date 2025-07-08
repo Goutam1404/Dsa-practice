@@ -68,6 +68,7 @@ public class Number {
 		System.out.println(ans);
 	}
 	
+	//factorial using recursion
 	public static int factorialRec(int n) {
 		if(n==0) return 1;
 		return n*factorialRec(n-1);
@@ -122,14 +123,14 @@ public class Number {
 
 	//decimal to binary
 	static void toBinary(int n) {
-		StringBuilder bin=new StringBuilder();
+		StringBuilder binary=new StringBuilder();
 		while(n>0) {
 			int bit=n%2;
-			bin.append(bit == 1 ? '1' : '0');
+			binary.append(bit == 1 ? '1' : '0');
 			n/=2;
 		}
-		bin.reverse();
-		System.out.println(bin);
+		binary.reverse();
+		System.out.println(binary);
 	}
 	
 	//12321-> reverse ->12321 
