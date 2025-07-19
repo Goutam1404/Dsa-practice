@@ -1,8 +1,8 @@
-package String;
+		package String;
 import java.util.*;
 public class String01 {
 	
-	//** isPalindrome
+	//** A String is said as Palindrome if it remains same if read reverse or forward		
 	//These program is for string with no space and no special characters
 	public static boolean isPalindrome(String str) {
 		int n=str.length();
@@ -20,6 +20,8 @@ public class String01 {
 	        int left = 0, right = s.length() - 1;
 	        while (left < right) {
 	            
+	        	//check whether the characters of the string are either alphabates or numbers only
+	        	//palindrome dosen't include space or special characters
 	            while (left < right && !Character.isLetterOrDigit(s.charAt(left))) {
 	                left++;
 	            }
@@ -39,20 +41,19 @@ public class String01 {
 	        return true;
 	    }
 	
-	  //Anangram is the analogy for strings i.e it checks all the alphabates in both strings are equal or nor  
+	  //Two strings are said to be Anangram if the number of characters in both the character is same
+	  //care race, heart earth
 	  public static boolean isAnagram(String s, String t) {
 	        s=s.toLowerCase();
 	        t=t.toLowerCase();
 	
-	        s=s.replace(" ","");
-	        t=t.replace(" ","");
+	        if(s.length()!=t.length()) return false;
 	        int arr[]=new int[26];
 	        for(int i=0;i<s.length();i++){
 	            arr[s.charAt(i)-'a']++;
-	        }
-	        for(int i=0;i<t.length();i++){
 	            arr[t.charAt(i)-'a']--;
 	        }
+	        
 	    for(int count: arr){
 	        if(!(count==0)){
 	            return false;

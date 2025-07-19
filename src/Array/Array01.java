@@ -210,7 +210,8 @@ public class Array01 {
 //		System.out.println("1st smallest number: "+smallval1(arr));
 //		System.out.println("2nd smallest number: "+smallval2(arr));
 		int arr1[]= {1,3,-2,-4,5,6};
-		max_sumkadanes(arr1);
+//		max_sumkadanes(arr1);
+		System.out.println(-3*-4);
 	}
 
 }

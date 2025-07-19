@@ -1,5 +1,7 @@
 package Array;
 
+import java.util.HashSet;
+
 public class Array03 {
 
 	static void printArr(int arr[]) {
@@ -76,6 +78,34 @@ public class Array03 {
 		
 	}
 	
+	static void unionArray(int arr1[],int []arr2) {
+		HashSet<Integer> set=new HashSet<>();
+		int count=0;
+		for(Integer i: arr1) {
+			set.add(i);
+		}
+		for(int i: arr2) {
+			set.add(i);
+		}
+		System.out.println("size of union is: "+set.size());
+	}
+	
+	static void arrIntersection(int arr1[],int []arr2) {
+		HashSet<Integer> set=new HashSet<>();
+		int count=0;
+		for(int i:arr1) {
+			set.add(i);
+		}
+		for(int i:arr2) {
+			if(set.contains(i)) {
+				System.out.print(i+" ");
+				set.remove(i);
+				count++;
+			}
+		}
+		System.out.println("size of intersection element: "+count);
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int arr[]= {2,4,1,3,7,5,6};
@@ -84,7 +114,9 @@ public class Array03 {
 //		rotateLeftByK(arr,k);
 //		rotateRightByK(arr,k);
 //		rightRotateOptimised(arr,k);
-		leftRotateOptimised(arr,k);
+//		leftRotateOptimised(arr,k);
+		unionArray(arr,new int[]{1,4,3,8,9});
+		arrIntersection(arr,new int[]{1,4,3,8,9});
 	}
 
 }
