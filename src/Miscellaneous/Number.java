@@ -151,6 +151,22 @@ public class Number {
 		if(n%9==0) return 9;
 		return n%9;
 	}
+	//using binary search tc=nlog(n)
+	static void squareRoot(int n) {
+		int left=0,right=n;
+		int ans=1;
+		while(left<=right) {
+			int mid=(right+left)/2;
+			if(mid*mid<=n) {
+				ans=mid;
+				left=mid+1;
+			}
+			else if(mid*mid>n) {
+				right=mid-1;
+			}
+		}
+		System.out.println(ans);
+	}
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -166,6 +182,7 @@ public class Number {
 //		armstrong(9474);
 //		toBinary(12);
 //		palindrome(12321);
-		System.out.println(digitalRoot(1234));
+//		System.out.println(digitalRoot(1234));
+		squareRoot(25);
 	}
 }
