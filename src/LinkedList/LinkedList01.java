@@ -187,6 +187,53 @@ public class LinkedList01 {
 		System.out.println("Node deleted from nth node");
 	}
 	
+	
+	//In these function we are finding the midvalue of the linked list
+	public boolean isPalindrome(Node head) {
+        //step 1-> Finding the mid node
+        if (head == null || head.next == null) return true;
+        Node slow = head, fast = head;
+        // slow will stop at midpoint
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        //step->2 Reverse from mid
+            Node prev=null;
+            Node curr=slow ;
+            Node temp;
+            //1 2 2 1
+            while(curr!=null){
+                temp=curr.next;
+                curr.next=prev;
+                prev=curr;
+                curr=temp;
+            }
+            Node right=prev;
+            Node left=head;
+        //step->3 Check the two list
+            while(right!=null){
+                if(right.data!=left.data) return false;
+                right=right.next;
+                left=left.next;
+            }
+            return true;
+    }
+	
+	//Floyd's algo
+	//finding a loop or cycle in the list
+	public boolean hasCycle() {
+        if(head==null || head.next==null) return false;
+        Node slow=head;
+        Node fast=head;
+        while(fast!=null && fast.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
+            if(slow==fast) return true;
+        }
+        return false;
+    }
+	
 	public static void main(String[] args) {
 	
 		// TODO Auto-generated method stub
