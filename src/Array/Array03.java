@@ -1,6 +1,9 @@
 package Array;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 
 public class Array03 {
 
@@ -105,6 +108,21 @@ public class Array03 {
 		}
 		System.out.println("size of intersection element: "+count);
 	}
+	
+//	Given an integer array of size n, find all elements that appear more than n/3 times.
+	 static List<Integer> majorityElement(int[] nums) {
+	        List<Integer> arr=new ArrayList<>();
+	        HashMap<Integer,Integer> map=new HashMap<>();
+	        for(int i=0;i<nums.length;i++){
+	            map.put(nums[i], map.getOrDefault(nums[i], 0)+1);	
+	        }
+	        for(Integer k: map.keySet()) {
+				if(map.get(k)>nums.length/3) {
+					arr.add(k);
+				}
+			}
+	        return arr;
+	    }
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

@@ -233,16 +233,24 @@ public class LinkedList01 {
         }
         return false;
     }
-	
+	int sz() {
+		Node temp=head;
+		int count=0;
+		while(temp!=null) {
+			temp=temp.next;
+			count++;
+		}
+		return count;
+	}
 	public static void main(String[] args) {
 	
 		// TODO Auto-generated method stub
 		LinkedList01 ll=new LinkedList01();
 		ll.createList(5);
-//		ll.addFirst(4);
-//		ll.addFirst(3);
-//		ll.addFirst(2);
-		ll.printList();
+		ll.addFirst(4);
+		ll.addFirst(3);
+		ll.addFirst(2);
+//		ll.printList();
 //		ll.addFirst(1);
 //		ll.addMiddle(6, 4);
 //		System.out.println(ll.size);
@@ -250,10 +258,11 @@ public class LinkedList01 {
 //		ll.printList();
 //		System.out.println(ll.size);
 //		ll.reverseList();
-		ll.removeNthNode(2);
+//		ll.removeNthNode(2);
 		ll.printList();
-		
-		System.gc();
+		System.out.println(ll.size);
+		System.out.println(ll.sz());
+//		System.gc();
 	}
 
 }

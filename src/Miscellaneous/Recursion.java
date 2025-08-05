@@ -37,6 +37,43 @@ public class Recursion {
 	    	if(n==0)return 1;
 	    	return n*fact(n-1);
 	    }
+	       
+	    //It will return the nth fibonacci series
+	    static int fib(int n) {
+	    	if(n==0 || n==1) return 1;
+	    	return fib(n-1)+fib(n-2);
+	    }
+
+	    static Boolean isSorted(int arr[],int i){
+	        if(i==arr.length-1) return true;
+	        if(arr[i]>arr[i+1]){
+	          return false;
+	        }
+	        return isSorted(arr,i+1);      
+	      }
+	    
+	    //time complexity o(n)
+	   static int pow(int x,int n) {
+		  if(n==0) return 1;
+//		   if(n==1 || n==0) {
+//			   return x;
+//		   }
+		   return x*pow(x,n-1);
+	   }
+	    
+	   //time complexity o(logn)
+	  static int powOpti(int x,int n) {
+		  if(n==0) {
+			  return 1;
+		  }
+		  int halfPow=powOpti(x,n/2);
+		  int halfPowSq=halfPow*halfPow;
+		  if(n%2!=0) {
+			  halfPowSq=x*halfPowSq;
+		  }
+		  return halfPowSq;
+	  }
+	  
 	    public static void main(String[] args) {
 	
 		  // System.out.println(sum(5));
@@ -48,7 +85,9 @@ public class Recursion {
 	      //   int result = sumArray(arr, arr.length);
 	      //   System.out.println("Sum of array elements: " + result);
 //	      System.out.println(Math.pow(5,2));
-	      System.out.println(fact(5));
+//	      System.out.println(fact(5));
+	    	System.out.println(pow(2,0));
+	    	System.out.println(powOpti(2,2));
 	}
 
 }

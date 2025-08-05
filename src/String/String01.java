@@ -1,4 +1,4 @@
-		package String;
+package String;
 import java.util.*;
 public class String01 {
 	
@@ -95,6 +95,32 @@ public class String01 {
 		  return hm.get(key);
 	  }
 	  
+	  //reversing words 
+	  //"hello world " => Reversed: "world hello"
+	  public static String reverseWords(String s) {
+	        StringBuilder sb = new StringBuilder();
+	        int n = s.length();
+	        int si = n - 1;
+	        
+	        for (; si >= 0; si--) {
+	            if (s.charAt(si) == ' ') {
+	                continue;
+	            }
+	            int ei = si;
+	            while (si >= 0 && s.charAt(si) != ' ') si--;
+	            if (sb.length() == 0) 
+	            {
+	                sb.append(s.substring(si + 1, ei + 1));
+	            }
+	            else {
+	                sb.append(' ');
+	                sb.append(s.substring(si + 1, ei + 1));
+	            }
+	        }
+	        
+	        return sb.toString();
+	    }
+     
 	  
 	  public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -107,6 +133,7 @@ public class String01 {
 		System.out.println(countFrequency(s2,'i'));
 //		System.out.println(isAnagram(s1,s2));
 //		System.out.println(isAnagramHash(s1,s2));
+		System.out.println(reverseWords("HEllo world"));
 	}
 
 }
