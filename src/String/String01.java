@@ -121,6 +121,31 @@ public class String01 {
 	        return sb.toString();
 	    }
      
+	  //'hello world'-> 'olleh dlrow'
+	  static String reverseString(String s) {
+		  char ch[]=s.toCharArray();
+		  int right=0,left=0;
+		  while(right<ch.length) {
+			  if(ch[right]==' ') {
+				  swapChar(ch,left,right-1);
+				  left=right+1;
+			  }
+			  right++;
+		  }
+		  swapChar(ch,left,right-1);
+		  return new String(ch);
+	  }
+	  
+	  private static void swapChar(char[] arr,int left,int right) {
+		  while(left<right) {
+			  char temp=arr[left];
+			  arr[left]=arr[right];
+			  arr[right]=temp;
+			  left++;
+			  right--;
+		  }
+	  }
+	  
 	  
 	  public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -133,7 +158,7 @@ public class String01 {
 		System.out.println(countFrequency(s2,'i'));
 //		System.out.println(isAnagram(s1,s2));
 //		System.out.println(isAnagramHash(s1,s2));
-		System.out.println(reverseWords("HEllo world"));
+		System.out.println(reverseString("HEllo world"));
 	}
 
 }
